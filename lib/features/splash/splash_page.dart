@@ -17,12 +17,11 @@ class SplashPage extends StatelessWidget {
             colors: AppColors.greenGradient),
     
         ),
-        child: Text('Donations',
-        style: AppTextStyles.bigText.copyWith(color: AppColors.white)
+        child: Image.asset('assets/images/man.png'),
+        //style: AppTextStyles.bigText.copyWith(color: AppColors.white)
        
        
         ),
-      ),
-    );
+      );
   }
 }
