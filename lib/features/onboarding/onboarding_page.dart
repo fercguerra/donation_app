@@ -1,7 +1,6 @@
 import 'package:donation_app/common/constants/app_colors.dart';
 import 'package:donation_app/common/constants/app_text_styles.dart';
 import 'package:flutter/material.dart';
-
 import '../../common/widgets/primary_button.dart';
 
 
