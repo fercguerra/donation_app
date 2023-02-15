@@ -1,5 +1,8 @@
+import 'dart:developer';
+
 import 'package:donation_app/common/constants/app_colors.dart';
 import 'package:donation_app/common/constants/app_text_styles.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import '../../common/widgets/primary_button.dart';
 
@@ -41,13 +44,26 @@ class OnboardingPage extends StatelessWidget {
           Text('Already have account? Log In',style: AppTextStyles.smallText.copyWith(color: AppColors.grey,
           ),
           ),
+          GestureDetector(
+            onTap: (() => log('message')),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text('Already have account?', style: AppTextStyles.smallText.copyWith(color: AppColors.grey,
+                ),),
+                Text('Log In', style: AppTextStyles.smallText.copyWith(
+                color: AppColors.greenligthTwo,),),
+              ],
+            ),
+          ),
+          
+          
           SizedBox(height: 24.0,)
-         ],
+         ]
          
          
         ),
       ),
-       
     );
   }
 }
