@@ -1,7 +1,5 @@
 import 'dart:ui';
-
 import 'package:flutter/material.dart';
-
 import '../constants/app_colors.dart';
 import '../constants/app_text_styles.dart';
 
@@ -12,45 +10,33 @@ class PrimaryButtom extends StatelessWidget {
     Key? key, this.onPressed, required this.text,
   }) : super(key: key);
 
+  final BorderRadius _borderRadius = const BorderRadius.all(Radius.circular(24.0));
+
   @override
   Widget build(BuildContext context) {
-    return Material(
+    return Ink(
+       height: 48.0,
+      decoration:  BoxDecoration(
+        borderRadius: _borderRadius,
+        gradient: LinearGradient(
+      begin: Alignment.topCenter,
+      end: Alignment.bottomCenter,
+      colors: onPressed !=null
+      ? AppColors.greenGradient
+      : AppColors.greyGradiente,
     
-      
-     
-        borderRadius: BorderRadius.all(Radius.circular(38.0)) ,
-        child: Ink(
-          decoration:  BoxDecoration(
-            borderRadius: BorderRadius.all(Radius.circular(38.0)),
-            gradient: LinearGradient(
-          begin: Alignment.topCenter,
-          end: Alignment.bottomCenter,
-          colors: onPressed !=null
-          ? AppColors.greenGradient
-          : AppColors.greyGradiente,
-        
-        ),
-          ),
-          child: InkWell(
-             borderRadius: BorderRadius.all(Radius.circular(38.0)),
-             onTap: onPressed,
-             child: Container(
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.all(Radius.circular(38.0)),
-
-
-              ),
-              alignment: Alignment.center,
-              height: 64.0,
-              child: Text(
-               text,
-                style: AppTextStyles.mediumText18.copyWith(
-                  color: AppColors.white),),
-              ),
-             ),
-          ),
-
-    
-      );
+    ),
+      ),
+      child: InkWell(
+         borderRadius: _borderRadius,
+         onTap: onPressed,
+         child: Align(
+          child: Text(
+          text,
+           style: AppTextStyles.mediumText18.copyWith(
+             color: AppColors.white),),
+         ),
+      ),
+    );
   }
 }
