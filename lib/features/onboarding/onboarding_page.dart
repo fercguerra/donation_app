@@ -16,19 +16,20 @@ class OnboardingPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.iceWhite,
-      body: Align(
-        child: Column(
-        
-         children: [
-          SizedBox(height: 40.0,
+      body: Column(      
+          children: [
+          SizedBox(height: 48.0,
           ),
           Expanded(
             flex: 2,
             child: Image.asset('assets/images/man.png'),
           ),
           Text('Make Your Donation',
+          textAlign: TextAlign.center,
           style:AppTextStyles.mediumText.copyWith(color: AppColors.greenligthTwo,)),
-          Text('and Saves Lives', style: AppTextStyles.mediumText.copyWith(color: AppColors.greenligthTwo,
+          Text('and Saves Lives', 
+          textAlign: TextAlign.center,
+          style: AppTextStyles.mediumText.copyWith(color: AppColors.greenligthTwo,
           ),
           
           ),
@@ -54,8 +55,7 @@ class OnboardingPage extends StatelessWidget {
           ),         
          ],       
         ),
-      ),
-    );
+      );
   }
 }
 
