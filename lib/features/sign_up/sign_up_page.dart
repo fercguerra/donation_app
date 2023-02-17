@@ -1,5 +1,4 @@
 import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
@@ -26,8 +25,14 @@ class SignUpPage extends StatelessWidget {
           ),
           Image.asset('assets/images/Stuck at Home To Do List.png',
           ),
-          TextFormField(),
-          TextField(),
+         Form(child: Column(
+          children: const [
+             CustomTextFormField(padding: null,
+
+          
+   ),
+          ],
+         )),
           Padding(
             padding: const EdgeInsets.only(
               left: 32.0,
@@ -50,6 +55,51 @@ class SignUpPage extends StatelessWidget {
           ),     
           ],
       ),     
+    );
+  }
+}
+
+class CustomTextFormField extends StatefulWidget {
+  final EdgeInsetsGeometry? padding;
+  const CustomTextFormField({
+    Key? key, required this.padding,
+  }) : super(key: key);
+
+  @override
+  State<CustomTextFormField> createState() => _CustomTextFormFieldState();
+}
+
+final defautBorder = const OutlineInputBorder(
+  borderSide: BorderSide(color: AppColors.greenligthTwo),
+);
+
+
+class _CustomTextFormFieldState extends State<CustomTextFormField> {
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: widget.padding ?? 
+      const EdgeInsets.symmetric(
+        horizontal: 24.0, 
+        vertical: 12.0,
+        ),
+      child: TextFormField(
+        decoration: InputDecoration(  
+          hintText:  'Fernanda Guerra',
+          floatingLabelBehavior: FloatingLabelBehavior.always,       
+          labelText: 'YOUR NAME',
+          labelStyle: AppTextStyles.inputLabelText.copyWith(color: AppColors.grey),            
+         
+         focusedBorder: defautBorder.copyWith(borderSide: const BorderSide(color: Colors.red,
+         ),
+         ),
+         errorBorder: defautBorder,
+         focusedErrorBorder: defautBorder,
+         enabledBorder: defautBorder,
+         disabledBorder: defautBorder,
+        ),
+    
+      ),
     );
   }
 }
